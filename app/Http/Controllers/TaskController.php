@@ -8,6 +8,20 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     //
+    //this function use to display the data
+    public function index()
+    {
+        $tasks = Task::orderBy('title', 'desc')->get();
+        return view('tasks.index', compact('tasks'));
+    }
+
+    // this function use to create tasks
+    public function create()
+    {
+        return view('tasks.create');
+    }
+
+    // this function use to store the data or tasks
     public function store(Request $request)
     {
         $title = $request->input('title');
