@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->index();
             $table->text('title');
             $table->string('desciption');
-            $table->enum('priority');
-            $table->due_date();
-            $table->status();
+            $table->enum('priority', ['High', 'Medium', 'Low']);
+            $table->date('due_date');
+            $table->enum('status', ['pending', 'completed']);
             $table->timestamps();
         });
     }
