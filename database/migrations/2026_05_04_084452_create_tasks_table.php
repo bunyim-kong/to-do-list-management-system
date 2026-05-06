@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->user_id();
-            $table->title();
-            $table->desciption();
-            $table->priority();
-            $table->due_date();
-            $table->status();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('priority')->default('medium'); // e.g., low, medium, high
+            $table->date('due_date')->nullable();
+            $table->string('status')->default('pending');  // e.g., pending, in_progress, completed
             $table->timestamps();
         });
     }
