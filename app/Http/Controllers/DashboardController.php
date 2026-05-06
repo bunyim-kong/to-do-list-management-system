@@ -12,11 +12,4 @@ class DashboardController extends Controller
     {
         return view('dashboard.index');
     }
-
-    // public function create()
-    // {
-    //     return view('dashboard.create');
-    // }
-
-   
 }
