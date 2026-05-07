@@ -17,12 +17,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'phone',
+        'bio',
     ];
-
-    public function tasks ()
-    {
-        return $this->beLongsto(task::class);
-    }
 
     public function tasks()
     {
