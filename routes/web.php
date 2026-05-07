@@ -8,5 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
+Route::get('/tasks', [TaskController::class, 'index']);
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+
+
+Route::get('/tasks', function () {
+    return view('pages.tasks.index');
+});

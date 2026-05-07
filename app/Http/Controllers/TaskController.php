@@ -12,7 +12,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderBy('title', 'desc')->get();
-        return view('tasks.index', compact('tasks'));
+        return view('pages.tasks.index', compact('tasks'));
     }
 
     // this function use to create tasks
