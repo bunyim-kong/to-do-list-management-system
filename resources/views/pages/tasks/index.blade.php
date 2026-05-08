@@ -14,30 +14,22 @@
 <body class="bg-red-100 min-h-screen p-8">
 
     <div class="max-w-7xl mx-auto">
-
-        <!-- Header -->
         <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-900">
+                Tasks List
+            </h1>
 
-        <h1 class="text-4xl font-bold text-gray-900">
-            Tasks List
-        </h1>
-
-        <button onclick="openModal()"class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg">
-            + Add Task
-        </button>
-
+            <button onclick="openModal()"class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg">
+                + Add Task
+            </button>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
-
             <div class="flex justify-between items-center mb-6">
-
                 <div class="flex gap-3">
-
                     <button class="bg-blue-600 text-white px-5 py-2 rounded-xl shadow font-medium">All</button>
                     <button class="bg-gray-100 border border-gray-300 px-5 py-2 rounded-xl hover:bg-gray-200 transition">Pending </button>
                     <button class="bg-gray-100 border border-gray-300 px-5 py-2 rounded-xl hover:bg-gray-200 transition">Completed</button>
-
                 </div>
 
                 <select class="border border-gray-300 px-4 py-2 rounded-xl text-gray-700 ">
@@ -45,12 +37,10 @@
                     <option>Priority</option>
                     <option>Status</option>
                 </select>
-
             </div>
 
             <div class="overflow-x-auto">
                 <table class="w-full">
-
                     <thead class="text-gray-400 text-sm uppercase border-b">
                         <tr>
                             <th class="py-4"></th>
@@ -176,18 +166,11 @@
                                 </div>
                             </td>
                         </tr>
-
                     </tbody>
-
                 </table>
-
             </div>
-
         </div>
-
     </div>
-
-
 
 
 
