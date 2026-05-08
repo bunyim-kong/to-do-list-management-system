@@ -2,27 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Dashboard;
-
+use Illuminate\Http\Request;
+use App\Models\Task;
 class DashboardController extends Controller
 {
     public function index()
     {
-        $totalTasks = Dashboard::count();
+        // Total tasks
+        $totalTasks = Task::count();
 
-       $completedTasks = Dashboard::where('completed_tasks', 'completed')->count();
+        // Completed tasks
+        $completedTasks = Task::where('status', 'completed')->count();
        
 
-        $pendingTasks = Dashboard::where('completed_tasks', 'pending')->count();
+        // Pending tasks
+        $pendingTasks = Task::where('status', 'pending')->count();
+        
 
-        $tasks = Dashboard::latest()->get();
+        // Get all tasks
+        $tasks = Task::latest()->get();
 
         return view('dashboard.index', compact(
-            
+            'tasks',
             'totalTasks',
             'completedTasks',
-            'pendingTasks',
-            'tasks'
+            'pendingTasks'
         ));
     }
 }

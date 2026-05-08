@@ -11,8 +11,12 @@ class TaskController extends Controller
     //this function use to display the data
     public function index()
     {
-        $tasks = Task::orderBy('title', 'desc')->get();
-        return view('pages.tasks.index', compact('tasks'));
+      
+{
+    $tasks = Task::latest()->get();
+
+    return view('dashboard.index', compact('tasks'));
+}
     }
 
     // this function use to create tasks

@@ -51,7 +51,7 @@
 
             <div class="text-right">
                 <h1 class="text-4xl font-bold text-black">
-    {{ $completedTasks }}
+                    {{ $completedTasks }}
 </h1>
                 <p class="text-gray-400 text-sm">Complete Tasks</p>
             </div>
@@ -77,8 +77,8 @@
 
             <div class="text-right">
                 <h1 class="text-4xl font-bold text-black">
-
-</h1>
+                    {{ $pendingTasks }}
+                </h1>
                 <p class="text-gray-400 text-sm">Pending Tasks</p>
             </div>
 
@@ -95,10 +95,7 @@
                 Recently Tasks
             </h1>
 
-            <button class="h-10 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl flex items-center gap-2 shadow">
-                <span class="text-xl"></span>
-                Add Task
-            </button>
+          
         </div>
 
         <!-- Card -->
@@ -153,50 +150,107 @@
                 </thead>
 
 
-                <tbody>
+              <tbody>
 
+    @foreach($tasks as $task)
 
-                    <tr class="border-t hover:bg-gray-50">
+        <tr class="border-t hover:bg-gray-50">
 
-                        <td class="px-8 py-5">
-                            <input type="checkbox" class="w-5 h-5 rounded">     
-                        </td>
+            {{-- Checkbox --}}
+            <td class="px-8 py-5">
+                <input type="checkbox" class="w-5 h-5 rounded">
+            </td>
 
-                        <td>
-                            <div class="">Design home page</div>
-                        </td>
+            {{-- Task Title --}}
+            <td class="px-8 py-5">
+                <div>{{ $task->title }}</div>
+            </td>
 
-                        <td class="px-8 py-5">
-                            <span class="bg-red-200 text-red-500 px-6 py-1 rounded-full text-sm">
-                                High
-                            </span>
-                        </td>
+            {{-- Priority --}}
+            <td class="px-8 py-5">
 
-                        <td class="px-8 py-5 text-gray-700">
-                            2026-05-10
-                        </td>
+                @if($task->priority == 'High')
 
-                        <td class="px-8 py-5">
-                            <span class="bg-yellow-100 text-yellow-500 px-6 py-1 rounded-full text-sm">
-                                Pending
-                            </span>
-                        </td>
+                    <span class="bg-red-200 text-red-500 px-6 py-1 rounded-full text-sm">
+                        {{ $task->priority }}
+                    </span>
 
-                        <td class="px-8 py-5 flex gap-4 cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash text-red-500" viewBox="0 0 16 16">
-                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-                            </svg>
-                        </td>
+                @elseif($task->priority == 'Medium')
 
-                    </tr>
-                    </td>
-                    </tr>
-                </tbody>
+                    <span class="bg-yellow-200 text-yellow-600 px-6 py-1 rounded-full text-sm">
+                        {{ $task->priority }}
+                    </span>
+
+                @else
+
+                    <span class="bg-green-200 text-green-600 px-6 py-1 rounded-full text-sm">
+                        {{ $task->priority }}
+                    </span>
+
+                @endif
+
+            </td>
+
+            {{-- Due Date --}}
+            <td class="px-8 py-5 text-gray-700">
+                {{ $task->due_date }}
+            </td>
+
+            {{-- Status --}}
+            <td class="px-8 py-5">
+
+                @if($task->status == 'completed')
+
+                    <span class="bg-green-100 text-green-600 px-6 py-1 rounded-full text-sm">
+                        Completed
+                    </span>
+
+                @else
+
+                    <span class="bg-yellow-100 text-yellow-500 px-6 py-1 rounded-full text-sm">
+                        Pending
+                    </span>
+
+                @endif
+
+            </td>
+
+            {{-- Action --}}
+            <td class="px-8 py-5 flex gap-4 cursor-pointer">
+
+                {{-- Edit --}}
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-pencil-square"
+                        viewBox="0 0 16 16">
+
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    </svg>
+                </a>
+
+                {{-- Delete --}}
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-trash text-red-500"
+                        viewBox="0 0 16 16">
+
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5"/>
+                    </svg>
+                </a>
+
+            </td>
+
+        </tr>
+
+    @endforeach
+
+</tbody>
 
             </table>
 
