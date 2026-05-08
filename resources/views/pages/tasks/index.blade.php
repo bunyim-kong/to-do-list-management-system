@@ -32,7 +32,6 @@
 
             <div class="flex justify-between items-center mb-6">
 
-                <!-- Buttons -->
                 <div class="flex gap-3">
 
                     <button class="bg-blue-600 text-white px-5 py-2 rounded-xl shadow font-medium">All</button>
@@ -41,7 +40,6 @@
 
                 </div>
 
-                <!-- Sort -->
                 <select class="border border-gray-300 px-4 py-2 rounded-xl text-gray-700 ">
                     <option>Sort by: Due Date</option>
                     <option>Priority</option>
@@ -72,7 +70,7 @@
                             </td>
                             <td class="font-medium text-lg">Design home page</td>
                             <td class="text-center">
-                                <span class="bg-red-200 text-red-600 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-red-200 text-red-600 text-xs font-bold px-8 py-1 rounded-full">
                                     High
                                 </span>
                             </td>
@@ -95,7 +93,7 @@
                             <td class="py-6"><input type="checkbox" checked class="w-5 h-5 rounded"></td>
                             <td class="font-medium text-lg">Make ERD and connect relation</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-500 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-yellow-100 text-yellow-500 text-xs font-bold px-8 py-1 rounded-full">
                                     Low
                                 </span>
                             </td>
@@ -145,7 +143,7 @@
                             </td>
                             <td class="font-medium text-lg"> Make Design Web</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-500 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-yellow-100 text-yellow-500 text-xs font-bold px-8 py-1 rounded-full">
                                     Low
                                 </span>
                             </td>
@@ -238,10 +236,10 @@
                     </select>
                 </div>
 
-            <div class="flex items-center gap-3">
+            <!-- <div class="flex items-center gap-3">
                 <input type="checkbox" class="w-5 h-5">
                 <label class="text-gray-700"> Mark as important task</label>
-            </div>
+            </div> -->
 
             <div class="flex justify-end gap-4 pt-4">
                 <button type="button"onclick="closeModal()"class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-3 rounded-xl">Cancel</button>
