@@ -151,21 +151,20 @@
 
                         <tr class="border-b hover:bg-gray-50 transition">
                             <td class="py-6">
-                                <input type="checkbox" class="w-4 h-4 rounded">
+                                <input type="checkbox" class="w-4 h-4 mt-1 rounded">
                             </td>
                             <td class="font-medium text-[16px]">Design home page</td>
                             <td class="text-center">
-                                <span class="bg-red-200 text-red-600 text-xs font-bold px-8 py-1 rounded-full">
+                                <span class="bg-red-200 text-red-600 text-xs font-bold px-4 py-1 rounded-full">
                                     High
                                 </span>
                             </td>
                             <td class="text-center">2026-05-10</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Pending
                                 </span>
                             </td>
-
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
                                     <button class="text-gray-500 hover:text-blue-600"> <i class="fa-regular fa-pen-to-square"></i> </button>
@@ -174,90 +173,74 @@
                             </td>
                         </tr>
 
-                        <tr class="border-b bg-gray-50">
-                            <td class="py-6"><input type="checkbox" checked class="w-5 h-5 rounded"></td>
-                            <td class="font-medium text-lg">Make ERD and connect relation</td>
+                        <tr class="border-b hover:bg-gray-50 transition">
+                            <td class="py-6">
+                                <input type="checkbox" class="w-4 h-4 mt-1 rounded">
+                            </td>
+                            <td class="font-medium text-[16px]">Make ERD and connect relation</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-500 text-xs font-bold px-8 py-1 rounded-full">
+                                <span class="bg-red-200 text-red-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Low
                                 </span>
                             </td>
                             <td class="text-center">2026-05-10</td>
                             <td class="text-center">
-                                <span class="bg-green-100 text-green-600 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Complete
                                 </span>
                             </td>
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
-
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i></button>
-                                    <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
-
+                                    <button class="text-gray-500 hover:text-blue-600"> <i class="fa-regular fa-pen-to-square"></i> </button>
+                                    <button class="text-red-500 hover:text-red-700"> <i class="fa-regular fa-trash-can"></i> </button>
                                 </div>
                             </td>
                         </tr>
 
-                        <tr class="border-b hover:bg-gray-50">
-                            <td class="py-6"><input type="checkbox" class="w-5 h-5 rounded"></td>
-                            <td class="font-medium text-lg">Make structure file</td>
+                        <tr class="border-b hover:bg-gray-50 transition">
+                            <td class="py-6">
+                                <input type="checkbox" class="w-4 h-4 mt-1 rounded">
+                            </td>
+                            <td class="font-medium text-[16px]">Make structure file</td>
                             <td class="text-center">
-                                <span class="bg-lime-100 text-lime-600 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-red-200 text-red-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Medium
                                 </span>
                             </td>
                             <td class="text-center">2026-05-10</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Pending
                                 </span>
                             </td>
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
-
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i></button>
-                                    <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
-
+                                    <button class="text-gray-500 hover:text-blue-600"> <i class="fa-regular fa-pen-to-square"></i> </button>
+                                    <button class="text-red-500 hover:text-red-700"> <i class="fa-regular fa-trash-can"></i> </button>
                                 </div>
                             </td>
                         </tr>
 
-                        <tr class="border-b hover:bg-gray-50">
+                        <tr class="border-b hover:bg-gray-50 transition">
                             <td class="py-6">
-                                <input type="checkbox" class="w-5 h-5 rounded">
+                                <input type="checkbox" class="w-4 h-4 mt-1 rounded">
                             </td>
-                            <td class="font-medium text-lg"> Make Design Web</td>
+                            <td class="font-medium text-[16px]">Make Design Web</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-500 text-xs font-bold px-8 py-1 rounded-full">
+                                <span class="bg-red-200 text-red-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Low
                                 </span>
                             </td>
-                            <td class="text-center">2026-05-11</td>
+                            <td class="text-center">2026-05-10</td>
                             <td class="text-center">
-                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-5 py-1 rounded-full">
+                                <span class="bg-yellow-100 text-yellow-600 text-xs font-bold px-4 py-1 rounded-full">
                                     Pending
                                 </span>
                             </td>
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
-
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i></button>
-                                    <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
-
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr class="hover:bg-gray-50">
-                            <td class="py-6"><input type="checkbox" class="w-5 h-5 rounded"></td>
-                            <td class="font-medium text-lg"> Mock Up Design</td>
-                            <td class="text-center"><span class="bg-lime-100 text-lime-600 text-xs font-bold px-5 py-1 rounded-full"> Medium </span> </td>
-                            <td class="text-center">2026-05-12</td>
-                            <td class="text-center"><span class="bg-green-100 text-green-600 text-xs font-bold px-5 py-1 rounded-full">Complete</span></td>
-                            <td>
-                                <div class="flex justify-center gap-4 text-lg">
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i> </button>
-                                    <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
+                                    <button class="text-gray-500 hover:text-blue-600"> <i class="fa-regular fa-pen-to-square"></i> </button>
+                                    <button class="text-red-500 hover:text-red-700"> <i class="fa-regular fa-trash-can"></i> </button>
                                 </div>
                             </td>
                         </tr>
