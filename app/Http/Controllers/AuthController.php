@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('pages.auth.login');
+        return view('dashboard.index');
     }
 
     public function showLogin()

@@ -37,5 +37,6 @@ class TaskController extends Controller
             'due_date'=>$date,
             'status'=>$status,
         ]);
+        return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
     }
 }
