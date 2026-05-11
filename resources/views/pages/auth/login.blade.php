@@ -17,7 +17,7 @@
     
     <span class="flex justify-center items-center text-sm  mb-6 text-center text-gray-400">
          Let’s get started with your 30 days free trail</span>
-    <form action="{{ route('register.store' )}} " method="POST">
+    <form action="{{ route('login.store' )}} " method="POST">
         @csrf
 
 
@@ -61,8 +61,7 @@
       <span
       class=" flex justify-center items-center text-sm text-center text-blck-600">
         Already have an account? Login
-    </span>
-      
+    </span>      
     
 
     </form>
