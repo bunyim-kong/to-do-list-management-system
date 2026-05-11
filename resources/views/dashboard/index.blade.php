@@ -104,35 +104,47 @@
             <!-- Top Actions -->
             <div class="flex items-center justify-between p-6">
 
-                <!-- Tabs -->
-                <div class="flex gap-3">
-                    <button class="bg-blue-600 text-white px-5 py-2 rounded-lg">
-                        All
-                    </button>
+             <!-- Tabs -->
+<div class="flex gap-3">
 
-                    <button class="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-100">
-                        Pending
-                    </button>
+    <a href="{{ route('tasks.index') }}"
+       class="px-5 py-2 rounded-lg {{ !request('status') ? 'bg-blue-600 text-white' : 'border border-gray-300' }}">
+        All
+    </a>
 
-                    <button class="border border-gray-300 px-5 py-2 rounded-lg hover:bg-gray-100">
-                        Completed
-                    </button>
-                </div>
+    <a href="{{ route('tasks.index', ['status' => 'Pending']) }}"
+       class="px-5 py-2 rounded-lg {{ request('status') == 'Pending' ? 'bg-blue-600 text-white' : 'border border-gray-300 hover:bg-gray-100' }}">
+        Pending
+    </a>
 
-                <!-- Sort -->
-                <button class="border border-gray-300 px-5 py-2 rounded-lg flex items-center gap-2">
-                    Sort by: Due Date
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        class="w-4 h-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7" />
-                    </svg>
-                </button>
+    <a href="{{ route('tasks.index', ['status' => 'Completed']) }}"
+       class="px-5 py-2 rounded-lg {{ request('status') == 'Completed' ? 'bg-blue-600 text-white' : 'border border-gray-300 hover:bg-gray-100' }}">
+        Completed
+    </a>
+
+</div>
+
+              <form method="GET" action="{{ route('dashboard.index') }}">
+    
+    <select name="sort"
+        onchange="this.form.submit()"
+        class="border border-gray-300 px-5 py-2 rounded-lg">
+
+        <option value="asc">Sort by Due Date</option>
+
+        <option value="latest"
+            {{ request('sort') == 'latest' ? 'selected' : '' }}>
+            Latest
+        </option>
+
+        <option value="asc"
+            {{ request('sort') == 'asc' ? 'selected' : '' }}>
+            Oldest
+        </option>
+
+    </select>
+
+</form>
             </div>
 
             <table class="w-full border-collapse bg-white rounded-2xl overflow-hidden shadow">
@@ -218,31 +230,43 @@
             {{-- Action --}}
             <td class="px-8 py-5 flex gap-4 cursor-pointer">
 
-                {{-- Edit --}}
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-pencil-square"
-                        viewBox="0 0 16 16">
+             {{-- Edit --}}
+<a href="{{ route('tasks.edit', $task->id) }}">
 
-                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    </svg>
-                </a>
+    <svg xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-pencil-square"
+        viewBox="0 0 16 16">
 
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+
+    </svg>
+
+</a>`
                 {{-- Delete --}}
-                <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-trash text-red-500"
-                        viewBox="0 0 16 16">
+              <form action="{{ route('tasks.destroy', $task->id) }}"
+      method="POST"
+      onsubmit="return confirm('Are you sure?')">
 
-                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5"/>
-                    </svg>
-                </a>
+    @csrf
+    @method('DELETE')
+
+    <button type="submit">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-trash text-red-500"
+            viewBox="0 0 16 16">
+
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5"/>
+
+        </svg>
+
+    </button>
 
             </td>
 

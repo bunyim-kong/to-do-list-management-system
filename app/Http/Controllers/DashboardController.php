@@ -4,23 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Total tasks
+        // SORT TASKS (default: ASC)
+        $tasks = Task::query();
+
+        if ($request->sort == 'latest') {
+            $tasks->orderBy('due_date', 'desc');
+        } else {
+            $tasks->orderBy('due_date', 'asc');
+        }
+
+        $tasks = $tasks->get();
+
+        // TOTAL TASKS
         $totalTasks = Task::count();
 
-        // Completed tasks
-        $completedTasks = Task::where('status', 'completed')->count();
-       
+        // COMPLETED TASKS (FIX: match your DB values)
+        $completedTasks = Task::where('status', 'Completed')->count();
 
-        // Pending tasks
-        $pendingTasks = Task::where('status', 'pending')->count();
-        
-
-        // Get all tasks
-        $tasks = Task::latest()->get();
+        // PENDING TASKS
+        $pendingTasks = Task::where('status', 'Pending')->count();
 
         return view('dashboard.index', compact(
             'tasks',
