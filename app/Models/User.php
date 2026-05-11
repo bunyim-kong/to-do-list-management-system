@@ -19,10 +19,6 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function tasks ()
-    {
-        return $this->beLongsto(task::class);
-    }
 
     public function tasks()
     {
