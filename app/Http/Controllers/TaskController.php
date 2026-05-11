@@ -12,13 +12,13 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderBy('title', 'desc')->get();
-        return view('pages.tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks'));
     }
 
     // this function use to create tasks
     public function create()
     {
-        return view('tasks.create');
+        return view('pages.tasks.create');
     }
 
     // this function use to store the data or tasks
@@ -35,5 +35,9 @@ class TaskController extends Controller
             'priority'=>$priority,
             'due_date'=>$date,
         ]);
+
+        return redirect()->route('tasks.index');
     }
+
+   
 }

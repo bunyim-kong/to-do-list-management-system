@@ -22,11 +22,13 @@
             Tasks List
         </h1>
 
-        <button onclick="openModal()"class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg">
-            + Add Task
+    
+        <button onclick="openModal()"class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg">  
+            <a href="{{ route('tasks.create') }}" >+ Add Task</a>
         </button>
 
-        </div>
+
+    </div>
 
         <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
 
@@ -51,7 +53,7 @@
             <div class="overflow-x-auto">
                 <table class="w-full">
 
-                    <thead class="text-gray-400 text-sm uppercase border-b">
+                    <thead class="text-gray-400 text-sm uppercase border-b bg-gray-100">
                         <tr>
                             <th class="py-4"></th>
                             <th class="text-left py-4 font-semibold">Task Name</th>
@@ -83,7 +85,15 @@
 
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
-                                    <button class="text-gray-500 hover:text-blue-600"> <i class="fa-regular fa-pen-to-square"></i> </button>
+                                    <button onclick="editTask(
+                                        'Design home page',
+                                        'Create homepage UI design',
+                                        'High',
+                                        '2026-05-10',
+                                        'Pending')"
+                                        class="text-gray-500 hover:text-blue-600">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
                                     <button class="text-red-500 hover:text-red-700"> <i class="fa-regular fa-trash-can"></i> </button>
                                 </div>
                             </td>
@@ -106,7 +116,15 @@
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
 
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i></button>
+                                    <button onclick="editTask(
+                                        'Make ERD and connect relation',
+                                        'Create ERD and establish database relations',
+                                        'Low',
+                                        '2026-05-10',
+                                        'Complete')"
+                                        class="text-gray-500 hover:text-blue-600">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
                                     <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
 
                                 </div>
@@ -130,7 +148,15 @@
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
 
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i></button>
+                                    <button onclick="editTask(
+                                        'Design home page',
+                                        'Create homepage UI design',
+                                        'High',
+                                        '2026-05-10',
+                                        'Pending')"
+                                        class="text-gray-500 hover:text-blue-600">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
                                     <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
 
                                 </div>
@@ -156,7 +182,15 @@
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
 
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i></button>
+                                    <button onclick="editTask(
+                                        'Design home page',
+                                        'Create homepage UI design',
+                                        'High',
+                                        '2026-05-10',
+                                        'Pending')"
+                                        class="text-gray-500 hover:text-blue-600">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
                                     <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
 
                                 </div>
@@ -171,7 +205,16 @@
                             <td class="text-center"><span class="bg-green-100 text-green-600 text-xs font-bold px-5 py-1 rounded-full">Complete</span></td>
                             <td>
                                 <div class="flex justify-center gap-4 text-lg">
-                                    <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i> </button>
+                                    <!-- <button class="text-gray-500 hover:text-blue-600"><i class="fa-regular fa-pen-to-square"></i> </button> -->
+                                    <button onclick="editTask(
+                                        'Design home page',
+                                        'Create homepage UI design',
+                                        'High',
+                                        '2026-05-10',
+                                        'Pending')"
+                                        class="text-gray-500 hover:text-blue-600">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                    </button>
                                     <button class="text-red-500 hover:text-red-700"><i class="fa-regular fa-trash-can"></i></button>
                                 </div>
                             </td>
@@ -194,82 +237,108 @@
 
 
 
+<!--CODE ADD TASK -->
 
-<body class="bg-gray-100 min-h-screen flex items-center justify-center">
-  <script src="https://cdn.tailwindcss.com"></script>
 
-  <div id="taskModal"class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4">
 
-    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8 relative">
+
+
+
+<!-- CODE FOR EDIT TASK -->
+
+<!-- EDIT MODAL -->
+<div id="editModal"class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
+
+    <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8">
+
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Edit Task</h2> 
+        </div>
+
 
         <form class="space-y-5">
+
             <div>
                 <label class="block text-gray-700 font-medium mb-2">Task Name</label>
-                <input type="text"placeholder="Enter task name"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input id="editTaskName"type="text" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
+
             <div>
-                <label class="block text-gray-700 font-medium mb-2">Description</label>
-                <textarea rows="4"placeholder="Write task description..."class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                <label class="block text-gray-700 font-medium mb-2"> Description</label>
+                <textarea id="editTaskDescription"rows="4" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
             </div>
+
             <div class="grid grid-cols-2 gap-4">
+
                 <div>
                     <label class="block text-gray-700 font-medium mb-2">Priority</label>
-                    <select class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select id="editTaskPriority" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option>High</option>
                         <option>Medium</option>
                         <option>Low</option>
                     </select>
                 </div>
 
-            <div>
-                    <label class="block text-gray-700 font-medium mb-2">Due Date</label>
-                    <input type="date"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            </div>
-
                 <div>
-                    <label class="block text-gray-700 font-medium mb-2">Status</label>
-                    <select class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>Pending</option>
-                        <option>In Progress</option>
-                        <option>Completed</option>
-                    </select>
+                    <label class="block text-gray-700 font-medium mb-2">Due Date</label>
+                    <input id="editTaskDate"type="date"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
 
-            <!-- <div class="flex items-center gap-3">
-                <input type="checkbox" class="w-5 h-5">
-                <label class="text-gray-700"> Mark as important task</label>
-            </div> -->
+            </div>
+
+            <div>
+                <label class="block text-gray-700 font-medium mb-2">Status</label>
+                <select id="editTaskStatus"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option>Pending</option>
+                    <option>In Progress</option>
+                    <option>Completed</option>
+                </select>
+            </div>
 
             <div class="flex justify-end gap-4 pt-4">
-                <button type="button"onclick="closeModal()"class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-3 rounded-xl">Cancel</button>
-                <button type="submit"class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md">Save Task</button>
+
+                <button type="button" onclick="closeEditModal()"class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-3 rounded-xl">Cancel</button>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-md">Update Task</button>
+
             </div>
+
         </form>
 
     </div>
 
-  </div>
+</div>
 
-  <!-- Script -->
-  <script>
 
-    function openModal() {
-      document.getElementById('taskModal').classList.remove('hidden');
-      document.getElementById('taskModal').classList.add('flex');
-    }
+<!-- JAVASCRIPT FOR EDIT  -->
+<script>
 
-    function closeModal() {
-      document.getElementById('taskModal').classList.remove('flex');
-      document.getElementById('taskModal').classList.add('hidden');
-    }
-  </script>
+function editTask(name, description, priority, date, status) {
 
+    // OPEN MODAL
+    document.getElementById('editModal').classList.remove('hidden');
+    document.getElementById('editModal').classList.add('flex');
+
+    // PUT DATA INTO FORM
+    document.getElementById('editTaskName').value = name;
+    document.getElementById('editTaskDescription').value = description;
+    document.getElementById('editTaskPriority').value = priority;
+    document.getElementById('editTaskDate').value = date;
+    document.getElementById('editTaskStatus').value = status;
+}
+
+
+function closeEditModal() {
+
+    document.getElementById('editModal').classList.remove('flex');
+    document.getElementById('editModal').classList.add('hidden');
+
+}
+
+</script>
 
 
 </body>
 </html>
-
 
 
 
