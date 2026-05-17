@@ -4,39 +4,99 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    //
-    //this function use to display the data
     public function index()
     {
-        $tasks = Task::orderBy('title', 'desc')->get();
+        $tasks = Task::where('user_id', Auth::id())->orderBy('due_date', 'asc')->get();
         return view('pages.tasks.index', compact('tasks'));
     }
 
-    // this function use to create tasks
-    public function create()
-    {
-        return view('tasks.create');
-    }
-
-    // this function use to store the data or tasks
     public function store(Request $request)
     {
-        $title = $request->input('title');
-        $des = $request->input('description');
-        $priority = $request->input('priority');
-        $date = $request->input('due_date');
-        $status = $request->input('status');
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'priority' => 'required|in:High,Medium,Low',
+            'due_date' => 'required|date',
+            'status' => 'required|in:pending,completed',
+        ]);
 
         Task::create([
-            'title'=>$title,
-            'description'=>$des,
-            'priority'=>$priority,
-            'due_date'=>$date,
-            'status'=>$status,
+            'title' => $request->title,
+            'description' => $request->description,
+            'priority' => $request->priority,
+            'due_date' => $request->due_date,
+            'status' => $request->status,
+            'user_id' => Auth::id(),
         ]);
+
         return redirect()->route('tasks.index')->with('success', 'Task created successfully!');
+    }
+
+    public function edit($id)
+    {
+        $task = Task::where('user_id', Auth::id())->where('id', $id)->firstOrFail();
+        return view('pages.tasks.edit', compact('task'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'priority' => 'required|in:High,Medium,Low',
+            'due_date' => 'required|date',
+            'status' => 'required|in:pending,completed',
+        ]);
+
+        $task = Task::where('user_id', Auth::id())->where('id', $id)->firstOrFail();
+        $task->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'priority' => $request->priority,
+            'due_date' => $request->due_date,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully!');
+    }
+
+    public function complete($id)
+    {
+        try {
+            $task = Task::where('user_id', Auth::id())->where('id', $id)->firstOrFail();
+            $task->status = 'completed';
+            $task->save();
+            
+            return response()->json(['success' => true, 'message' => 'Task completed successfully']);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $task = Task::where('user_id', Auth::id())->where('id', $id)->firstOrFail();
+        $task->delete();
+
+        return redirect()->route('tasks.index')->with('success', 'Task deleted successfully!');
+    }
+    
+    public function editData($id)
+    {
+        $task = Task::where('user_id', Auth::id())->where('id', $id)->firstOrFail();
+        return response()->json($task);
+    }
+
+    public function completedTasks()
+    {
+        $tasks = Task::where('user_id', Auth::id())
+                    ->where('status', 'completed')
+                    ->orderBy('due_date', 'asc')
+                    ->get();
+        return view('pages.tasks.completed', compact('tasks'));
     }
 }

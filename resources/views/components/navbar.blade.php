@@ -18,18 +18,18 @@
                 <h5 class="mb-0 text-[24px] font-bold">@yield('page-title', 'Dashboard')</h5>
             </div>
 
-            <form>
+            <form class="w-[350px] d-flex me-10" role="search">
                 <input type="search" class="form-control" placeholder="Search...">
             </form>
             
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Yimm YoungSteav
+                    {{ Auth::user()->name ?? 'Guest' }}
                 </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> My Profile</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-gear"></i> Settings</a></li>
+                    </li>
                 </ul>
             </div>
         </div>
