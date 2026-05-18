@@ -23,3 +23,4 @@ Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.crea
 
 Route::get('tests', [TestController::class, 'index']) ->name('tests.index');
 Route::post('tests', [TestController::class, 'store']) ->name('tests.store');
+Route::get('tests/edit/{id}', [TestController::class, 'edit']) ->name('tests.id');

@@ -10,7 +10,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        return view('tests.index');
+        $tests = Test::all();
+        return view('tests.index', compact('test'));
     }
 
     public function store(Request $request)

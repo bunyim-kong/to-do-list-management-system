@@ -4,15 +4,19 @@
     <button type="submit">Send</button> 
 
 </form>
+
 <table>
   <tr>
-    <th>Month</th>
-    <th>Savings</th>
-    <th>price</th>
+    <th>Name</th>
+    <th>Phone-Number</th>
   </tr>
+
+  @foreach($tests as $test)
+
   <tr>
-    <td>January</td>
-    <td>$100</td>
-    <th>5678</th>
+    <td>{{ $test->name}}</td>
+    <td>{{ $test->number}}</td>
   </tr>
+  @endforeach
 </table>
+    
