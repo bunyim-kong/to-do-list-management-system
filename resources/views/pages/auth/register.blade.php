@@ -65,7 +65,7 @@
       <button 
         type="submit"
         class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition mb-2">
-        Sign up
+        Register
       </button>
       <span
       class=" flex justify-center items-center text-sm text-center text-blck-600">

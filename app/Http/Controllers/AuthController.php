@@ -33,6 +33,7 @@ class AuthController extends Controller
         return redirect()->route('pages.auth.login');
     }
 
+
     public function showLogin()
     {
         return view('pages.auth.login');

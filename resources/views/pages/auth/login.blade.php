@@ -60,7 +60,7 @@
       </button>
       <span
       class=" flex justify-center items-center text-sm text-center text-blck-600">
-        Already have an account? Login
+        Already have an account? Sign up
     </span>      
     
 
