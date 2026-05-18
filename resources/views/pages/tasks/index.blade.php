@@ -118,7 +118,6 @@
     </div>
 </div>
 
-<!-- Add Task Modal -->
 <div id="taskModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
     <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8 relative">
         <h2 class="text-2xl font-bold mb-4">Add New Task</h2>
@@ -166,7 +165,6 @@
     </div>
 </div>
 
-<!-- Edit Task Modal -->
 <div id="editTaskModal" class="fixed inset-0 bg-black/40 hidden items-center justify-center p-4 z-50">
     <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8 relative">
         <h2 class="text-2xl font-bold mb-4">Edit Task</h2>
@@ -266,7 +264,7 @@
         }
     });
 
-    // Checkbox complete functionality
+    // Checkbox complete
     document.querySelectorAll('.complete-checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', function(e) {
             e.preventDefault();
@@ -300,7 +298,6 @@
                             statusBadge.classList.remove('bg-yellow-100', 'text-yellow-600');
                             statusBadge.classList.add('bg-green-100', 'text-green-600');
                         }
-                        alert('Task marked as completed!');
                     } else {
                         checkbox.checked = false;
                         alert('Error: ' + data.message);

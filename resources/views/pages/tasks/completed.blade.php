@@ -30,19 +30,7 @@
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-2xl mt-2 font-bold text-gray-900">
                 Completed Tasks
-                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded-full ml-2">
-                    {{ $tasks->count() }} tasks
-                </span>
             </h1>
-            
-            <div class="flex gap-2">
-                <a href="{{ route('tasks.index') }}" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2.5 rounded-xl shadow-lg text-sm">
-                    All Tasks
-                </a>
-                <button onclick="openModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl shadow-lg">
-                    + Add Task
-                </button>
-            </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
