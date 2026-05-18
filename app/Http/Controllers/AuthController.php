@@ -18,7 +18,7 @@ class AuthController extends Controller
     {
         // $request->validate([
         //     'name' => 'required|string|max:200',
-        //     'email' => 'required|string|email|max:200|unique:user',
+        //     'email' => 'required|string|email|max:200|unique:users',
         //     'password' => 'required|string|min:6|confirmed',
         // ]);
 
@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('pages.auth.login');
+        return redirect('dashboard');
     }
 
 

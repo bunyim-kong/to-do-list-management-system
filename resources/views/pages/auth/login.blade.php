@@ -11,8 +11,8 @@
 
   <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-[500px]">
     
-    <h1 class=" text-3xl font-bold mb-6 text-center text-blck-600">
-      Welcome
+    <h1 class=" text-3xl font-bold mb-4 text-center text-blck-600">
+      Welcome Back
     </h1>
     
     <span class="flex justify-center items-center text-sm  mb-6 text-center text-gray-400">
@@ -49,19 +49,19 @@
     </div>
 
       
-        <span class="text-sm mb-3 flex items-center justify-end">forget password</span>
+    <span class="text-sm mb-3 flex items-center justify-end">forget password</span>
       
       
 
-      <button 
+    <button 
         type="submit"
         class="w-full mb-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition">
         Login
-      </button>
-      <span
-      class=" flex justify-center items-center text-sm text-center text-blck-600">
-        Already have an account? Sign up
-    </span>      
+    </button>
+
+    <span class=" flex justify-center items-center text-[16px] text-center text-blck-600">
+        Create a new account <a href="{{  route('register')  }}" class="text-blue-600 hover:text-blue-700 font-semibold ml-1">Sign up</a>
+    </span>     
     
 
     </form>
