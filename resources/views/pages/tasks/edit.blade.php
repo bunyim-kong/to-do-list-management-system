@@ -68,23 +68,23 @@
 function editTask(name, description, priority, date, status) {
 
     // OPEN MODAL
-    document.getElementById('editModal').classList.remove('hidden');
-    document.getElementById('editModal').classList.add('flex');
+    // document.getElementById('editModal').classList.remove('hidden');
+    // document.getElementById('editModal').classList.add('flex');
 
     // PUT DATA INTO FORM
-    document.getElementById('editTaskName').value = name;
-    document.getElementById('editTaskDescription').value = description;
-    document.getElementById('editTaskPriority').value = priority;
-    document.getElementById('editTaskDate').value = date;
-    document.getElementById('editTaskStatus').value = status;
+    // document.getElementById('editTaskName').value = name;
+    // document.getElementById('editTaskDescription').value = description;
+    // document.getElementById('editTaskPriority').value = priority;
+    // document.getElementById('editTaskDate').value = date;
+    // document.getElementById('editTaskStatus').value = status;
 }
 
 
-function closeEditModal() {
+// function closeEditModal() {
 
-    document.getElementById('editModal').classList.remove('flex');
-    document.getElementById('editModal').classList.add('hidden');
+//     document.getElementById('editModal').classList.remove('flex');
+//     document.getElementById('editModal').classList.add('hidden');
 
-}
+// }
 
 </script>
