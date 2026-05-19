@@ -2,6 +2,8 @@
 
 @section('title', 'Task')
 
+@section('page-title', 'Tasks')
+
 @section('content')
 
 <style>

@@ -2,6 +2,8 @@
 
 @section('title', 'My Profile')
 
+@section('page-title', 'My Profile')
+
 @section('content')
 
 <div class="w-full min-h-screen px-4 py-3">
