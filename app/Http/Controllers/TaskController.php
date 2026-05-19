@@ -12,7 +12,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderBy('title', 'desc')->get();
-        return view('tasks.index', compact('tasks'));
+        return view('pages.tasks.index', compact('tasks'));
     }
 
     // this function use to create tasks
@@ -24,6 +24,7 @@ class TaskController extends Controller
     // this function use to store the data or tasks
     public function store(Request $request)
     {
+
         $title = $request->input('title');
         $des = $request->input('description');
         $priority = $request->input('priority');

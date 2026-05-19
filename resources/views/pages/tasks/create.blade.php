@@ -19,41 +19,36 @@
                     @csrf
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">Task Name</label>
-                        <input type="text"placeholder="Enter task name"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <input name="title" type="text"placeholder="Enter task name"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <label class="block text-gray-700 font-medium mb-2">Description</label>
-                        <textarea rows="4"placeholder="Write task description..."class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        <textarea name="description" rows="4"placeholder="Write task description..."class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Priority</label>
-                            <select class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option>High</option>
-                                <option>Medium</option>
-                                <option>Low</option>
+                            <select name="priority" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
                             </select>
                         </div>
 
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Due Date</label>
-                            <input type="date"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input name="due_date" type="date"class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                     </div>
 
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Status</label>
-                            <select class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <select name="status" class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 <option>Pending</option>
                                 <option>In Progress</option>
                                 <option>Completed</option>
                             </select>
                         </div>
-
-                    <!-- <div class="flex items-center gap-3">
-                        <input type="checkbox" class="w-5 h-5">
-                        <label class="text-gray-700"> Mark as important task</label>
-                    </div> -->
 
                     <div class="flex justify-end gap-4 pt-4">
                         <button type="button"onclick="closeModal()"class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-3 rounded-xl">
@@ -65,19 +60,7 @@
 
 
 
-        <!-- Script FOR ADD TASK -->
-        <!-- <script>
-
-            function openModal() {
-            document.getElementById('taskModal').classList.remove('hidden');
-            document.getElementById('taskModal').classList.add('flex');
-            }
-
-            function closeModal() {
-            document.getElementById('taskModal').classList.remove('flex');
-            document.getElementById('taskModal').classList.add('hidden');
-            }
-        </script> -->
+ 
 
     </body>
     
