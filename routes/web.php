@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 // Auth Routes
 Route::get('/', [AuthController::class, 'showRegister'])->name('register');
@@ -19,6 +20,7 @@ Route::get('/dashboard', function(){
     return view('dashboard.index', compact('tasks'));
 })->name('dashboard');
 
+// Tasks Route
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
@@ -28,6 +30,11 @@ Route::post('/tasks/{id}/complete', [TaskController::class, 'complete'])->name('
 Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
 Route::get('/tasks/completed', [TaskController::class, 'completedTasks'])->name('tasks.completed');
+
+// Profile Route
+Route::get('/profile', function(){
+    return view('pages.profile.index');
+})->name('profile');
 
 // Logout Route
 Route::post('/logout', function(){

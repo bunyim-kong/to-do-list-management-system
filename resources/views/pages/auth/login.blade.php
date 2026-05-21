@@ -27,8 +27,8 @@
                 <i class="fa-regular fa-user text-gray-400"></i>
                     <input 
                         type="text" 
-                        name="name"
-                        placeholder="full name"
+                        name="email"
+                        placeholder="email"
                         class="outline-none border-none ml-2"/>
             </div>
     </div>

@@ -22,15 +22,11 @@
                 <input type="search" class="form-control" placeholder="Search...">
             </form>
             
-            <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ Auth::user()->name ?? 'Guest' }}
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> My Profile</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-regular fa-gear"></i> Settings</a></li>
-                    </li>
-                </ul>
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                    {{ strtoupper(substr(Auth::user()->name ?? 'G', 0, 1)) }}
+                </div>
+                <span class="text-gray-700 font-medium">{{ Auth::user()->name ?? 'Guest' }}</span>
             </div>
         </div>
     </nav>
